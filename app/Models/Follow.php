@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @method static where(array $array)
+ * @method static create(array $array)
+ * @method static updateOrCreate(array $array)
+ * @method static whereNotNull(string $string)
  */
 class Follow extends Model
 {

@@ -16,9 +16,5 @@ class Follower extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function follower()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
 

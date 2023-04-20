@@ -40,6 +40,14 @@ class FollowController extends Controller
         return response()->json(['message' => 'Successfully followed'], 201);
     }
 
+
+    public function index()
+    {
+
+        return Follow::whereNotNull('user_id')->get()->toSql();
+//        return response(true);
+    }
+
     public function unfollow(Request $request, User $user)
     {
         $validator = Validator::make($request->all(), [

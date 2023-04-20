@@ -10,16 +10,18 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
+public function index(){
+    return User::all();
+}
 
-
-    public function create(Request $request)
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
             'bio' => 'nullable|string',
-            'profile_image' => 'nullable|image|max:1024',
+            'profile_image' => 'nullable|string|max:1024',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
